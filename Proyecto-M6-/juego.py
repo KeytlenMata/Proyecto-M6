@@ -1,6 +1,6 @@
 import random
 
-def mostrar_bienvenida():
+def mostrar_instrucciones():
     ancho = 50
     print("\n" + "┈" * ancho)
     titulo = "🔥  ADIVINA EL NÚMERO SECRETO  🔥"
@@ -48,12 +48,12 @@ def seleccionar_dificultad():
             print("⚠️ Opción no válida. Intenta de nuevo (solo 1, 2 o 3).")
 
 #juego principal
-def juego_numero_secreto():
-    numero_secreto = random.randint(1, 10)   
+def juego_numero_secreto(n_min, n_max):
+    numero_secreto = random.randint(n_min, n_max)   
     intentos = 5
     
     for i in range(intentos):
-        entrada = input("Ingresa un número entre 1 y 10: ")
+        entrada = input(f"Ingresa un número entre {n_min} y {n_max}: ")
 
         if not entrada.isdigit():
             print("Debes ingresar solo números.")
@@ -72,7 +72,5 @@ def juego_numero_secreto():
         
         print("Incorrecto.")
 
-    print("¡Perdiste!")
+    print(f"¡Perdiste! El número secreto era {numero_secreto}")
 
-seleccionar_dificultad()
-juego_numero_secreto()
