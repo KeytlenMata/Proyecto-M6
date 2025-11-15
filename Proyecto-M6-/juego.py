@@ -15,4 +15,27 @@ def mostrar_bienvenida():
 """)
     print("─" * ancho)
 
-    
+    import random
+
+#juego principal
+def juego_numero_secreto():
+    numero_secreto = random.randint(1, 10)   
+    intentos = 5
+
+    for i in range(intentos):
+        entrada = input("Ingresa un número entre 1 y 10: ")
+
+        
+        if not entrada.isdigit():
+            print(" Debes ingresar solo números.")
+            continue
+
+        intento = int(entrada)
+
+        
+        if intento == numero_secreto:
+            return True  
+        else:
+            print("Incorrecto")
+
+    return False 
