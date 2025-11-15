@@ -1,16 +1,23 @@
 import juego
 
+def mostrar_titulo():
+    print("=" * 60)
+    ancho = 60
+    titulo = "🔥  A D I V I N A   E L   N Ú M E R O   S E C R E T O  🔥"
+    print(titulo.center(ancho))
 
 def mostrar_menu():
-    print("\n" + "=" * 40)
-    print("              MENU PRINCIPAL")
-    print("=" * 40)
+    ancho = 60
+    print("=" * ancho)
+    print("\n" + "MENU PRINCIPAL".center(ancho) + "\n")
     print("1. Jugar")
     print("2. Instrucciones")
     print("3. Salir")
-    print("=" * 40)
+    print("=" * ancho)
 
 def main_menu():
+    mostrar_titulo()
+
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción (1-3): ").strip()
@@ -27,7 +34,7 @@ def main_menu():
             input("Presiona Enter para continuar...")
 
         elif opcion == "3":
-            print("\nSaliendo del programa. Hasta luego.")
+            print("\nSaliendo del programa. Hasta luego.\n")
             break
 
         else:

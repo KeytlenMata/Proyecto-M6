@@ -1,21 +1,16 @@
 import random
 
 def mostrar_instrucciones():
-    ancho = 50
-    print("\n" + "┈" * ancho)
-    titulo = "🔥  ADIVINA EL NÚMERO SECRETO  🔥"
-    print(titulo.center(ancho))
-    print("┈" * ancho)
+    print("\n📜 INSTRUCCIONES")
+    print("┈" * 60)
     print("""
-📜 Instrucciones:
 - Elige un nivel de dificultad.
 - Tendrás 5 intentos para adivinar el número secreto.
-- Después de cada intento, te diré si el número es mayor o menor.
-- ¡Gana si adivinas el número antes de quedarte sin intentos!
+- Después de cada intento, sabrás si el número secreto es mayor o menor.
+- ¡Gana si lo adivinas antes de quedarte sin intentos!
 
 🌟 ¡Buena suerte y que comience el juego! 🌟
 """)
-    print("─" * ancho)
 
 def seleccionar_dificultad():
     """
@@ -27,25 +22,25 @@ def seleccionar_dificultad():
     - Difícil: 1 a 50
     """
 
-    print("🎯 SELECCIONA UN NIVEL DE DIFICULTAD 🎯")
-    print("1️⃣  Fácil (1 - 10)")
-    print("2️⃣  Medio (1 - 20)")
+    print("🎯 SELECCIONA UN NIVEL DE DIFICULTAD 🎯\n")
+    print("1️⃣  Fácil   (1 - 10)")
+    print("2️⃣  Medio   (1 - 20)")
     print("3️⃣  Difícil (1 - 50)")
 
     while True:
-        opcion = input("👉 Ingresa tu elección (1-3): ").strip()
+        opcion = input("\n👉 Ingresa tu elección (1-3): ").strip()
 
         if opcion == "1":
-            print("✅ Has elegido el nivel FÁCIL.")
+            print("\n✅ Has elegido el nivel FÁCIL.")
             return 1, 10
         elif opcion == "2":
-            print("✅ Has elegido el nivel MEDIO.")
+            print("\n✅ Has elegido el nivel MEDIO.")
             return 1, 20
         elif opcion == "3":
-            print("✅ Has elegido el nivel DIFÍCIL.")
+            print("\n✅ Has elegido el nivel DIFÍCIL.")
             return 1, 50
         else:
-            print("⚠️ Opción no válida. Intenta de nuevo (solo 1, 2 o 3).")
+            print("\n⚠️ Opción no válida. Intenta de nuevo (solo 1, 2 o 3).")
 
 #juego principal
 def juego_numero_secreto(n_min, n_max):
@@ -53,7 +48,7 @@ def juego_numero_secreto(n_min, n_max):
     intentos = 5
     
     for i in range(intentos):
-        entrada = input(f"Ingresa un número entre {n_min} y {n_max}: ")
+        entrada = input(f"\nIngresa un número entre {n_min} y {n_max}: ")
 
         if not entrada.isdigit():
             print("Debes ingresar solo números.")
@@ -62,15 +57,12 @@ def juego_numero_secreto(n_min, n_max):
         intento = int(entrada)
 
         if intento == numero_secreto:
-            print("¡Ganaste!")
+            print("\n🎉 ¡GANASTE! 🎉\n")
             return
-        
+      
         if intento > numero_secreto:
             print("El número es menor.")
         else:
             print("El número es mayor.")
-        
-        print("Incorrecto.")
-
-    print(f"¡Perdiste! El número secreto era {numero_secreto}")
-
+         
+    print(f"\n¡PERDISTE!, El número secreto era {numero_secreto}\n")
